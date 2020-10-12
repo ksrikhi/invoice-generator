@@ -1,0 +1,34 @@
+{
+    "billingDetail": {
+        "clientName": "tech",
+        "streetAddress": "Ascot Ave",
+        "city": "toronto",
+        "state": "Ontario",
+        "phoneNumber": "234567890",
+        "email": "rikhikanchan123@gmail.com"
+    },
+    "items": [
+        {
+            "discription": "material",
+            "unitCost": 1,
+            "quantity": 5
+        },
+        {
+            "discription": "material cost",
+            "unitCost": 1,
+            "quantity": 50
+        },
+        {
+            "discription": "css deaign",
+            "unitCost": 10,
+            "quantity": 5
+        }
+    ],
+    "profileDetail": {
+        "companyName": "tech",
+        "companyAddress": "toronto",
+        "city": "m65",
+        "phoneNumber": "546789",
+        "state": "on"
+    }
+}
