@@ -22,6 +22,17 @@ const getPdfTemplates = (data) => {
 <head>
     <title>INVOICE</title>
     <style>
+
+    body {
+        color: #2a2a2a;
+        font-family: Helvetica, Arial, sans-serif;
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
+        font-size:16px;
+    }
+
         .flex-container {
             margin-left: 10%;
             margin-right: 10%;
@@ -34,6 +45,7 @@ const getPdfTemplates = (data) => {
             display: flex;
             flex-direction: column;
             justify-content: end;
+         
         }
 
         h1 {
@@ -45,7 +57,7 @@ const getPdfTemplates = (data) => {
             margin: 0 0 7px;
         }
 
-        .companyDetail {
+        .clientDetail {
             flex: 50%;
         }
 
@@ -68,6 +80,7 @@ const getPdfTemplates = (data) => {
             margin: 25px 0 10px;
             text-align: center;
             table-layout: fixed;
+            width:100%;
            
         }
 
@@ -84,10 +97,10 @@ const getPdfTemplates = (data) => {
 <body>
     <div style="border-top: 15px solid #b24522;"></div>
     <div class="flex-container">
-        <div style="justify-content: space-between; display: flex;">
-            <h1>INVOICE</h1>
-            <div class="compantProfile">
-                <p><b>${clientName}</b></p>
+        <div style='padding: 10px 0; display: table; overflow: hidden; margin: 0 0 10px;'>
+            <h1 style='display: table-cell; vertical-align: top; width: 100%; padding-right: 25px;'>INVOICE</h1>
+            <div style="vertical-align: top;">
+                <p><b>${companyName}</b></p>
                 <p>${companyAddress}</p>
                 <p>${cityaddress}</p>
                 <p>${companyState}</p>
@@ -95,11 +108,11 @@ const getPdfTemplates = (data) => {
                 <p>${email}</p>
             </div>
         </div>
-        <div style="border-top: 5px solid gray; margin: 30px 0; width: 100%;"></div>
+        <div style="border-top: 5px solid gray; margin: 30px 0;"></div>
 
-        <div class="flex-box flex-start">
+        <div  style='padding: 10px 0; display: table;'>
 
-            <div class="companyDetail">
+            <div style='display: table-cell; vertical-align: top; width:350px'>
                 <p> <b>Billing To:</b> </P>
                 <p>${clientName}</p>
                 <p>${streetAddress}</p>
@@ -108,35 +121,33 @@ const getPdfTemplates = (data) => {
                 <p>${phoneNumber}</p>
                 <p>${email}</p>
             </div>
-            <div class="companyDetail">
                 <div class="flex-box">
-                    <div style="flex: 100%; margin-bottom: 10px;">
+                    <div  style='display: table-cell; vertical-align: top;width:350px '>
                         <p> <b>Issued Date:</b></p>
                         <p><b>Invoice Number </b> </p>
                         <p> <b>Client Id</b> </p>
                     </div>
-                    <div class="companyDetail">
+                    <div style='display: table-cell; vertical-align: top; margin-left: 20%;'>
                         <p><b></b>04/02/2019</p>
                         <p>672195-A </p>
                         <p> 88427 </p>
                     </div>
                 </div>
-            </div>
         </div>
-        <table height=100%>
+        <table >
             <tr>
-                <th width=40%>Discription</th>
-                <th width=20%>Unit Cost</th>
-                <th width=20%>Quantity</th>
-                <th width=20%>Amount</th>
+                <th>Discription</th>
+                <th>Unit Cost</th>
+                <th>Quantity</th>
+                <th>Amount</th>
             </tr>
             ${items.map(({discription,unitCost,quantity}=item) => {
                 return `
                 <tr>
-                <td width=40%>${discription}</td>
-                <td width=20%>${unitCost}</td>
-                <td width=20%>${quantity}</td>
-                <td width=20%>${quantity * unitCost}</td>
+                <td >${discription}</td>
+                <td>${unitCost}</td>
+                <td>${quantity}</td>
+                <td>${quantity * unitCost}</td>
             </tr>`
             })}
         </table>
@@ -158,9 +169,10 @@ const getPdfTemplates = (data) => {
             <p style="margin:0 0 15px 31%;font-weight: 200;font-size: 17px;">Contect Name,(000)000-0000, or billing@companyname.com</p>
         </div>
     </div>
+    <footer>
     <div style="border-top: 15px solid #b24522;"></div>
+    </footer>
 </body>
-
 </html>
     `
 }

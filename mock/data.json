@@ -1,11 +1,11 @@
 {
     "billingDetail": {
-        "clientName": "tech",
-        "streetAddress": "Ascot Ave",
+        "clientName": "k. sharma",
+        "streetAddress": "Ascot Ave , m62",
         "city": "toronto",
         "state": "Ontario",
         "phoneNumber": "234567890",
-        "email": "rikhikanchan123@gmail.com"
+        "email": "ksrikhi123@gmail.com"
     },
     "items": [
         {
@@ -25,10 +25,11 @@
         }
     ],
     "profileDetail": {
-        "companyName": "tech",
+        "companyName": "Techbye Team",
         "companyAddress": "toronto",
-        "city": "m65",
-        "phoneNumber": "546789",
-        "state": "on"
+        "city": "Downtown",
+        "phoneNumber": "546786779",
+        "state": "On",
+        "email": "techbyteteam@gmail.com"
     }
 }

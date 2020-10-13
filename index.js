@@ -12,9 +12,6 @@ app.use(bodyParser.json())
 app.get('/', function (req, res) {
   res.send('Hello World!')
 })
-app.post('/', function (req, res) {
-  res.send('Got a POST request')
-})
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

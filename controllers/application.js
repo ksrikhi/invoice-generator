@@ -1,16 +1,16 @@
 const pdf = require('html-pdf');
 const data = require('../mock/data.json');
-const getPdfTemplates = require('../helper/pdfTemplate')
-const getEmailTemplates = require('../helper/emailTemplate');
+const getPdfTemplates = require('../helper/pdfTemplate');
+const sendEmail = require('../helper/sendEmail');
 
 const generatePdf = () => {
   const html = getPdfTemplates(data);
-  const email = getEmailTemplates(data);
   const options = { format: 'Letter' };
-
-  pdf.create(html, options).toFile('./invoice.pdf', function (err, res) {
+  const fileName = `../tmp/invoice${Math.ceil(Math.random(1)*100000)}.pdf`;
+  pdf.create(html, options).toFile(fileName, function (err, res) {
     if (err) return console.log(err);
-    console.log(res); // { filename: '/app/businesscard.pdf' }
+    sendEmail(data, res.filename);
+    console.log(res)
   });
 }
 

@@ -1,18 +1,36 @@
-const sgMail = require('@sendgrid/mail')
-sgMail.setApiKey(process.env.SENDGRID_API_KEY)
-//https://www.twilio.com/blog/sending-email-attachments-with-sendgrid
-const msg = {
-  to: 'ksrikhi123@gmail.com',
-  from: 'techbyteteam@gmail.com',
-  subject: 'Billing Invoice',
-  html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+const fs = require("fs");
+const sgMail = require('@sendgrid/mail');
+const getEmailTemplates = require('./emailTemplate')
+
+const deletePdfFile = (filePath) => fs.unlinkSync(filePath);
+
+const sendEmail = (data, filePath) => {
+  attachment = fs.readFileSync(filePath).toString("base64");
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+  const msg = {
+    to: data.billingDetail.email,
+    from: data.profileDetail.email,
+    subject: 'Billing Invoice',
+    html: getEmailTemplates(data),
+    attachments: [
+      {
+        content: attachment,
+        filename: "invoice.pdf",
+        type: "application/pdf",
+        disposition: "attachment"
+      }
+    ]
+  }
+  sgMail
+    .send(msg)  
+    .then(() => {
+      deletePdfFile(filePath);
+      console.error('Email sent successfully')
+    })
+    .catch((error) => {
+      deletePdfFile(filePath);
+      console.error(error)
+    })
 }
-sgMail
-  .send(msg)
-  .then(() => {
-    console.log('Email sent')
-  })
-  .catch((error) => {
-    console.error(error)
-  })
-  
+
+module.exports = sendEmail
