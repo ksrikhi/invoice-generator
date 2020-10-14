@@ -1,7 +1,7 @@
 const express = require('express');
 const application = express.Router();
 
-const applicationController = require('./controllers/application');
+const generatePdfAndSendEmail = require('../controllers/application');
 
-application.post("/sendEmail", applicationController.sendEmail)
+application.post("/sendEmail", generatePdfAndSendEmail)
 module.exports = application;

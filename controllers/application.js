@@ -1,9 +1,11 @@
 const pdf = require('html-pdf');
-const data = require('../mock/data.json');
+// const data = require('../mock/data.json');
 const getPdfTemplates = require('../helper/pdfTemplate');
 const sendEmail = require('../helper/sendEmail');
 
-const generatePdf = () => {
+const generatePdfAndSendEmail = (req, res, next) => {
+  const { body } = req;
+  const data = body;
   const html = getPdfTemplates(data);
   const options = { format: 'Letter' };
   const fileName = `../tmp/invoice${Math.ceil(Math.random(1)*100000)}.pdf`;
@@ -14,5 +16,4 @@ const generatePdf = () => {
   });
 }
 
-generatePdf()
-module.exports = generatePdf
+module.exports = generatePdfAndSendEmail

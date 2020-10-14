@@ -4,6 +4,7 @@
   "description": "pdf invoice genrater",
   "main": "index.js",
   "scripts": {
+    "start": "node ./index.js ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,9 +26,8 @@
   "dependencies": {
     "@sendgrid/mail": "^7.2.6",
     "body-parser": "^1.19.0",
-    "ejs": "^3.1.5",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
-    "html-pdf": "^2.2.0",
-    "nodemailer": "^6.4.11"
-  }
+    "html-pdf": "^2.2.0"
+    }
 }
