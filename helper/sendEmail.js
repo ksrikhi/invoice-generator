@@ -25,7 +25,7 @@ const sendEmail = (data, filePath) => {
     .send(msg)  
     .then(() => {
       deletePdfFile(filePath);
-      console.error('Email sent successfully')
+      console.log('Email sent successfully')
     })
     .catch((error) => {
       deletePdfFile(filePath);

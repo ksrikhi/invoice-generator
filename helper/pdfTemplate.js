@@ -147,7 +147,7 @@ const getPdfTemplates = (data) => {
                 <td >${discription}</td>
                 <td>${unitCost}</td>
                 <td>${quantity}</td>
-                <td>${quantity * unitCost}</td>
+                <td>${(+quantity * +unitCost)}</td>
             </tr>`
             })}
         </table>
