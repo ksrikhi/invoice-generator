@@ -14,7 +14,12 @@ const getPdfTemplates = (data) => {
             phoneNumber: mobileNumber,
             State: companyState,
         }
-    } = data
+    } = data;
+    const subTotal = items.reduce((accumulator, currentValue) => accumulator +
+        currentValue.quantity * currentValue.unitCost, 0)
+    const tax = subTotal * 0.13;
+    const taxFormated = tax.toFixed(2);
+    const total = taxFormated + subTotal;
     return `
     <!DOCTYPE html>
 <html>
@@ -141,25 +146,25 @@ const getPdfTemplates = (data) => {
                 <th>Quantity</th>
                 <th>Amount</th>
             </tr>
-            ${items.map(({discription,unitCost,quantity}=item) => {
-                return `
+            ${items.map(({ discription, unitCost, quantity } = item) => {
+        return `
                 <tr>
                 <td >${discription}</td>
                 <td>${unitCost}</td>
                 <td>${quantity}</td>
-                <td>${(+quantity * +unitCost)}</td>
+                <td>CAD ${(+quantity * +unitCost)}</td>
             </tr>`
-            })}
+    })}
         </table>
 
 
         <div style="flex: 100%; margin-left: 70%; ">
-            <p>Subtotal:<span>0.00</span> </p>
-            <p>Tax Rate:<span style="margin-left: 39%;">0.00%</span></p>
-            <P style="margin-left:-20px ;">Tax Amount:<span style="margin-left: 36%;">0.00</span></P>
+            <p>Subtotal:<span> CAD ${subTotal}</span> </p>
+            <p>Tax Rate:<span style="margin-left: 39%;">13%</span></p>
+            <P style="margin-left:-20px ;">Tax Amount:<span style="margin-left: 30%;">${taxFormated}</span></P>
         </div>
         <div style="flex: 100%; margin-left: 65%;border-top: 5px solid gray; ">
-            <p style="margin:5px 0 0 20% "><b>Total:</b><span style="margin-left:45%;"><b>0.00</b></span></p>
+            <p style="margin:5px 0 0 20% "><b>Total:</b><span style="margin-left:45%;"><b>CAD ${total}</b></span></p>
         </div>
         <div style="flex: 100%; margin-left: 65%;border-top: 5px solid gray; "></div>
         <div>
