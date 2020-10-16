@@ -21,6 +21,11 @@ const getPdfTemplates = (data) => {
     const tax = subTotal * 0.13;
     const taxFormated = tax.toFixed(2);
     const total = taxFormated + subTotal;
+    const date = new Date().getDate();
+    const month = new Date().getMonth();
+    const year = new Date().getFullYear();
+    const currentDate = date + '-' + month + '-' + year;
+    const clientId =  Math.floor((Math.random() * 1000) + 1);
     return `
     <!DOCTYPE html>
 <html>
@@ -129,14 +134,12 @@ const getPdfTemplates = (data) => {
             </div>
                 <div class="flex-box">
                     <div  style='display: table-cell; vertical-align: top;width:350px '>
-                        <p> <b>Issued Date:</b></p>
-                        <p><b>Invoice Number </b> </p>
-                        <p> <b>Client Id</b> </p>
+                        <p> <b>Issued Date: </b></p>
+                        <p> <b>Invoice No: </b> </p>
                     </div>
                     <div style='display: table-cell; vertical-align: top; margin-left: 20%;'>
-                        <p><b></b>04/02/2019</p>
-                        <p>672195-A </p>
-                        <p> 88427 </p>
+                        <p><b></b>${currentDate}</p>
+                        <p>${clientId} </p>
                     </div>
                 </div>
         </div>
