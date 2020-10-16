@@ -22,9 +22,9 @@ const getPdfTemplates = (data) => {
     const taxFormated = tax.toFixed(2);
     const total = taxFormated + subTotal;
     const date = new Date().getDate();
-    const month = new Date().getMonth();
+    const month = new Date().getMonth()+1;
     const year = new Date().getFullYear();
-    const currentDate = date + '-' + month + '-' + year;
+    const currentDate = `${year}-${month}-${date}`
     const clientId =  Math.floor((Math.random() * 1000) + 1);
     return `
     <!DOCTYPE html>
@@ -106,7 +106,6 @@ const getPdfTemplates = (data) => {
 </head>
 
 <body>
-    <div style="border-top: 15px solid #b24522;"></div>
     <div class="flex-container">
         <div style='padding: 10px 0; display: table; overflow: hidden; margin: 0 0 10px;'>
             <h1 style='display: table-cell; vertical-align: top; width: 100%; padding-right: 25px;'>INVOICE</h1>
@@ -178,9 +177,6 @@ const getPdfTemplates = (data) => {
             <p style="margin:0 0 15px 31%;font-weight: 200;font-size: 17px;">Contect Name,(000)000-0000, or billing@companyname.com</p>
         </div>
     </div>
-    <footer>
-    <div style="border-top: 15px solid #b24522;"></div>
-    </footer>
 </body>
 </html>
     `
