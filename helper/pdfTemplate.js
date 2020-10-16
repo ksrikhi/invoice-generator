@@ -25,7 +25,7 @@ const getPdfTemplates = (data) => {
     const month = new Date().getMonth()+1;
     const year = new Date().getFullYear();
     const currentDate = `${year}-${month}-${date}`
-    const clientId =  Math.floor((Math.random() * 1000) + 1);
+    const clientId =  Math.floor((Math.random() *  999999) + 1);
     return `
     <!DOCTYPE html>
 <html>
@@ -39,7 +39,7 @@ const getPdfTemplates = (data) => {
         font-family: Helvetica, Arial, sans-serif;
         max-width: 1200px;
         width: 100%;
-        margin: 0 auto;
+        margin-top: 1em;
         box-sizing: border-box;
         font-size:16px;
     }
@@ -108,7 +108,7 @@ const getPdfTemplates = (data) => {
 <body>
     <div class="flex-container">
         <div style='padding: 10px 0; display: table; overflow: hidden; margin: 0 0 10px;'>
-            <h1 style='display: table-cell; vertical-align: top; width: 100%; padding-right: 25px;'>INVOICE</h1>
+            <h2 style='display: table-cell; vertical-align: top; width: 100%; padding-right: 25px;'>INVOICE</h2>
             <div style="vertical-align: top;">
                 <p><b>${companyName}</b></p>
                 <p>${companyAddress}</p>
@@ -132,11 +132,11 @@ const getPdfTemplates = (data) => {
                 <p>${email}</p>
             </div>
                 <div class="flex-box">
-                    <div  style='display: table-cell; vertical-align: top;width:350px '>
+                    <div  style='display: table-cell; vertical-align: top;width:300px '>
                         <p> <b>Issued Date: </b></p>
                         <p> <b>Invoice No: </b> </p>
                     </div>
-                    <div style='display: table-cell; vertical-align: top; margin-left: 20%;'>
+                    <div style='display: table-cell; vertical-align: top; margin-left: 10%;'>
                         <p><b></b>${currentDate}</p>
                         <p>${clientId} </p>
                     </div>
@@ -156,23 +156,30 @@ const getPdfTemplates = (data) => {
                 <td>${unitCost}</td>
                 <td>${quantity}</td>
                 <td>CAD ${(+quantity * +unitCost)}</td>
-            </tr>`
+            </tr>
+            <tr>
+            <tr>
+            <td ></td>
+            <td></td>
+            <td></td>
+            <td></td> 
+            </tr>
+           `
     })}
         </table>
 
 
         <div style="flex: 100%; margin-left: 60%; ">
-            <p>Subtotal:<span> CAD ${subTotal}</span> </p>
-            <p>Tax Rate:<span style="margin-left: 39%;">13%</span></p>
-            <P style="margin-left:-10px ;">Tax Amount:<span style="margin-left: 30%;">${taxFormated}</span></P>
+            <p>Subtotal:<span> $ ${subTotal}</span> </p>
+            <p>Tax Rate:<span style="margin-left: 42%;">13%</span></p>
+            <P style="margin-left:-10px ;">Tax Amount:<span style="margin-left: 32%;">${taxFormated}</span></P>
         </div>
         <div style="flex: 100%; margin-left: 65%;border-top: 5px solid gray; ">
-            <p style="margin:5px 0 0 10% "><b>Total:</b><span style="margin-left:30%;"><b>CAD ${total}</b></span></p>
+            <p style=" margin-left:5%"><b>Total:</b><span style="margin-left:28%;"><b>$ ${total}</b></span></p>
         </div>
         <div style="flex: 100%; margin-left: 65%;border-top: 5px solid gray; "></div>
         <div>
-          <p style="margin: 15px 0 30px; font-weight: 200;font-size: 17px;"><b>Additional Comments: </b>Please return payment within 16 days for issued date.</p>
-            <p style="margin-bottom: 30px; text-align: center; font-weight: 200;font-size: 17px;"><b>Thank you for your business!</b></p>
+          <p style="margin-bottom: 30px; text-align: center; font-weight: 200;font-size: 17px;"><b>Thank you for your business!</b></p>
             <p style="margin:0 0 10px 33%;font-weight: 200;font-size: 17px;">if you have any questions or inquaries, please contect.</p>
             <p style="margin:0 0 15px 31%;font-weight: 200;font-size: 17px;">Contect Name,(000)000-0000, or billing@companyname.com</p>
         </div>
