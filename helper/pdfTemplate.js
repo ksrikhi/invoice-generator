@@ -13,6 +13,7 @@ const getPdfTemplates = (data) => {
             city: cityaddress,
             phoneNumber: mobileNumber,
             State: companyState,
+            email: emailaddress,
         }
     } = data;
     const subTotal = items.reduce((accumulator, currentValue) => accumulator +
@@ -110,7 +111,7 @@ const getPdfTemplates = (data) => {
                 <p>${cityaddress}</p>
                 <p>${companyState}</p>
                 <p>${mobileNumber}</p>
-                <p>${email}</p>
+                <p>${emailaddress}</p>
             </div>
         </div>
         <div style="border-top: 5px solid gray; margin: 30px 0;"></div>
@@ -158,13 +159,13 @@ const getPdfTemplates = (data) => {
         </table>
 
 
-        <div style="flex: 100%; margin-left: 70%; ">
+        <div style="flex: 100%; margin-left: 60%; ">
             <p>Subtotal:<span> CAD ${subTotal}</span> </p>
             <p>Tax Rate:<span style="margin-left: 39%;">13%</span></p>
-            <P style="margin-left:-20px ;">Tax Amount:<span style="margin-left: 30%;">${taxFormated}</span></P>
+            <P style="margin-left:-10px ;">Tax Amount:<span style="margin-left: 30%;">${taxFormated}</span></P>
         </div>
         <div style="flex: 100%; margin-left: 65%;border-top: 5px solid gray; ">
-            <p style="margin:5px 0 0 20% "><b>Total:</b><span style="margin-left:45%;"><b>CAD ${total}</b></span></p>
+            <p style="margin:5px 0 0 10% "><b>Total:</b><span style="margin-left:30%;"><b>CAD ${total}</b></span></p>
         </div>
         <div style="flex: 100%; margin-left: 65%;border-top: 5px solid gray; "></div>
         <div>
