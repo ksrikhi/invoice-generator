@@ -10,17 +10,17 @@
     "items": [
         {
             "discription": "material",
-            "unitCost": 1,
+            "unitCost": 12.5,
             "quantity": 5
         },
         {
             "discription": "material cost",
-            "unitCost": 1,
+            "unitCost": 1.43,
             "quantity": 50
         },
         {
             "discription": "css deaign",
-            "unitCost": 10,
+            "unitCost": 10.5,
             "quantity": 5
         }
     ],

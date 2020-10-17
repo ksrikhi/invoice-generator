@@ -18,14 +18,16 @@ const getPdfTemplates = (data) => {
     } = data;
     const subTotal = items.reduce((accumulator, currentValue) => accumulator +
         currentValue.quantity * currentValue.unitCost, 0)
+    const subtotal = subTotal.toFixed(2);
     const tax = subTotal * 0.13;
-    const taxFormated = tax.toFixed(2);
-    const total = taxFormated + subTotal;
+    Tax = tax.toFixed(2)
+    const taxFormated = Tax;
+    const total = +taxFormated + +subTotal;
     const date = new Date().getDate();
-    const month = new Date().getMonth()+1;
+    const month = new Date().getMonth() + 1;
     const year = new Date().getFullYear();
     const currentDate = `${year}-${month}-${date}`
-    const clientId =  Math.floor((Math.random() *  999999) + 1);
+    const clientId = Math.floor((Math.random() * 999999) + 1);
     return `
     <!DOCTYPE html>
 <html>
@@ -156,20 +158,20 @@ const getPdfTemplates = (data) => {
                 <td >${discription}</td>
                 <td>$${unitCost}</td>
                 <td>${quantity}</td>
-                <td>CAD ${(+quantity * +unitCost)}</td>
+                <td>$${(+quantity * +unitCost).toFixed(2)}</td>
             </tr>
            `
     })}
         </table>
 
 
-        <div style="flex: 100%; margin-left: 60%; ">
-            <p>Subtotal:<span> $${subTotal}</span> </p>
-            <p>Tax Rate:<span style="margin-left: 22%;">13%</span></p>
+        <div style="flex: 100%; margin-left: 70%; ">
+            <p>Subtotal:<span> $${subtotal}</span> </p>
+            <p>Tax Rate:<span style="margin-left: 12%;">13%</span></p>
             <P style="margin-left:-10px ;">Tax Amount:<span style="margin-left: 12%;">${taxFormated}</span></P>
         </div>
         <div style="flex: 100%; margin-left: 65%;border-top: 5px solid gray; ">
-            <p style=" margin-left:25%"><b>Total:</b><span style="margin-left:2%;"><b>$${total}</b></span></p>
+            <p style=" margin-left:15%"><b>Total:</b><span style="margin-left:10%;"><b>$${total}</b></span></p>
         </div>
         <div style="flex: 100%; margin-left: 65%;border-top: 5px solid gray; "></div>
         <div>

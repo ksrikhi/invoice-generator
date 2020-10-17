@@ -1,5 +1,5 @@
 const pdf = require('html-pdf');
-// const data = require('../mock/data.json');
+//  const data = require('../mock/data.json');
 const getPdfTemplates = require('../helper/pdfTemplate');
 const sendEmail = require('../helper/sendEmail');
 
@@ -26,4 +26,5 @@ const generatePdfAndSendEmail = (req, res, next) => {
 }
 
 
+// generatePdfAndSendEmail()
 module.exports = generatePdfAndSendEmail
