@@ -108,7 +108,7 @@ const getPdfTemplates = (data) => {
 <body>
     <div class="flex-container">
         <div style='padding: 10px 0; display: table; overflow: hidden; margin: 0 0 10px;'>
-            <h2 style='display: table-cell; vertical-align: top; width: 100%; padding-right: 25px;'>INVOICE</h2>
+            <h1 style='display: table-cell; vertical-align: top; width: 100%; padding-right: 25px;'>INVOICE</h1>
             <div style="vertical-align: top;">
                 <p><b>${companyName}</b></p>
                 <p>${companyAddress}</p>
@@ -131,8 +131,9 @@ const getPdfTemplates = (data) => {
                 <p>${phoneNumber}</p>
                 <p>${email}</p>
             </div>
+            
                 <div class="flex-box">
-                    <div  style='display: table-cell; vertical-align: top;width:300px '>
+                    <div  style='display: table-cell; vertical-align: top '>
                         <p> <b>Issued Date: </b></p>
                         <p> <b>Invoice No: </b> </p>
                     </div>
@@ -153,16 +154,9 @@ const getPdfTemplates = (data) => {
         return `
                 <tr>
                 <td >${discription}</td>
-                <td>${unitCost}</td>
+                <td>$${unitCost}</td>
                 <td>${quantity}</td>
                 <td>CAD ${(+quantity * +unitCost)}</td>
-            </tr>
-            <tr>
-            <tr>
-            <td ></td>
-            <td></td>
-            <td></td>
-            <td></td> 
             </tr>
            `
     })}
@@ -170,18 +164,18 @@ const getPdfTemplates = (data) => {
 
 
         <div style="flex: 100%; margin-left: 60%; ">
-            <p>Subtotal:<span> $ ${subTotal}</span> </p>
-            <p>Tax Rate:<span style="margin-left: 42%;">13%</span></p>
-            <P style="margin-left:-10px ;">Tax Amount:<span style="margin-left: 32%;">${taxFormated}</span></P>
+            <p>Subtotal:<span> $${subTotal}</span> </p>
+            <p>Tax Rate:<span style="margin-left: 22%;">13%</span></p>
+            <P style="margin-left:-10px ;">Tax Amount:<span style="margin-left: 12%;">${taxFormated}</span></P>
         </div>
         <div style="flex: 100%; margin-left: 65%;border-top: 5px solid gray; ">
-            <p style=" margin-left:5%"><b>Total:</b><span style="margin-left:28%;"><b>$ ${total}</b></span></p>
+            <p style=" margin-left:25%"><b>Total:</b><span style="margin-left:2%;"><b>$${total}</b></span></p>
         </div>
         <div style="flex: 100%; margin-left: 65%;border-top: 5px solid gray; "></div>
         <div>
-          <p style="margin-bottom: 30px; text-align: center; font-weight: 200;font-size: 17px;"><b>Thank you for your business!</b></p>
-            <p style="margin:0 0 10px 33%;font-weight: 200;font-size: 17px;">if you have any questions or inquaries, please contect.</p>
-            <p style="margin:0 0 15px 31%;font-weight: 200;font-size: 17px;">Contect Name,(000)000-0000, or billing@companyname.com</p>
+          <p style="margin-bottom: 30px; margin-top: 20px;  text-align: center; font-weight: 200;font-size: 17px;"><b>Thank you for your business!</b></p>
+            <p style= "text-align: center;font-weight: 200;font-size: 17px;">if you have any questions or inquaries, please contect.</p>
+            <p style="text-align: center;font-weight: 200;font-size: 17px;">Contect Name,(000)000-0000, or billing@companyname.com</p>
         </div>
     </div>
 </body>
