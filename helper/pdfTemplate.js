@@ -20,8 +20,8 @@ const getPdfTemplates = (data) => {
         currentValue.quantity * currentValue.unitCost, 0)
     const subtotal = subTotal.toFixed(2);
     const taxCal = +subTotal * 0.13;
-    tax = taxCal.toFixed(2)
-    const taxFormated = Tax;
+    tax = +taxCal.toFixed(2)
+    const taxFormated = tax;
     const total = +taxFormated + +subTotal;
     const date = new Date().getDate();
     const month = new Date().getMonth() + 1;
