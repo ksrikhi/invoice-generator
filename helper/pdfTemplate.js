@@ -77,7 +77,7 @@ const getPdfTemplates = (data) => {
         }
 
         h1 {
-            font-size: 5em;
+            font-size: 3em;
             margin: 0;
         }
 
@@ -150,7 +150,7 @@ const getPdfTemplates = (data) => {
             </div>
             
                 <div class="flex-box">
-                    <div  style='display: table-cell; vertical-align: top '>
+                    <div  style=' vertical-align: top '>
                         <p> <b>Issued Date: </b></p>
                         <p> <b>Invoice No: </b> </p>
                     </div>
@@ -180,10 +180,10 @@ const getPdfTemplates = (data) => {
         </table>
 
 
-        <div style="flex: 100%; margin-left: 70%; ">
-            <p>Subtotal:<span> $${subtotal}</span> </p>
+        <div style="flex: 100%; margin-left: 50%; ">
+            <p "margin-left:-10px ;">Subtotal:<span> $${subtotal}</span> </p>
             <p>Tax Rate:<span style="margin-left: 12%;">13%</span></p>
-            <P style="margin-left:-10px ;">Tax Amount:<span style="margin-left: 12%;">${taxFormated}</span></P>
+            <P style="margin-left:-10px ;">Tax Amount:<span style="margin-left: 10%;">${taxFormated}</span></P>
         </div>
         <div style="flex: 100%; margin-left: 65%;border-top: 5px solid gray; ">
             <p style=" margin-left:15%"><b>Total:</b><span style="margin-left:10%;"><b>$${total.toFixed(2)}</b></span></p>
