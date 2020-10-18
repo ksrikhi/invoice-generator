@@ -35,6 +35,21 @@ const getPdfTemplates = (data) => {
 <head>
     <title>INVOICE</title>
     <style>
+    @page {
+        size: A4;
+    }
+
+    @page :left {
+        margin-left: 1cm;
+    }
+
+    @page :right {
+        margin-left: 1cm;
+    }
+
+    @page :first {
+        margin-top: 1cm;
+    }
 
     body {
         color: #2a2a2a;
