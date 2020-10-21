@@ -3,27 +3,37 @@ const pdf = require('html-pdf');
 const getPdfTemplates = require('../helper/pdfTemplate');
 const sendEmail = require('../helper/sendEmail');
 
-const generatePdfAndSendEmail = (req, res, next) => {
+const generatePdfAndSendEmail = (req, response, next) => {
   const { body } = req;
   const data = body;
   const html = getPdfTemplates(data);
   const options = { 
   "format": 'Letter',
     "header": {
+      "height": '2mm',
         "contents": '<div style="border-top: 15px solid #b24522;"></div>'
   },
   "footer": {
+    "height": '5mm',
     "contents": '<div style="border-top: 15px solid #b24522;"></div>'
   }
 },
 
   fileName = `../tmp/invoice${Math.ceil(Math.random(1)*100000)}.pdf`;
   pdf.create(html, options).toFile(fileName, function (err, res) {
-    if (err) return console.log(err);
-    sendEmail(data, res.filename);
+    if (err) return response.status(401).send("something is wrong");
+    sendEmail(data, res.filename, response);
     console.log(res)
   });
 }
+
+
+// fileName = `../tmp/invoice${Math.ceil(Math.random(1)*100000)}.pdf`;
+// pdf.create(html, options).toFile(fileName, function (err, res) {
+//   if (err) return console.log(err);
+//   sendEmail(data, res.filename);
+//   console.log(res)
+// });
 
 
 // generatePdfAndSendEmail()
