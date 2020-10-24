@@ -6,7 +6,7 @@ const deletePdfFile = (filePath) => fs.unlinkSync(filePath);
 
 const sendEmail = (data, filePath, response) => {
   attachment = fs.readFileSync(filePath).toString("base64");
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
   const msg = {
     to: data.billingDetail.email,
     from: data.profileDetail.email,

@@ -77,7 +77,7 @@ const getPdfTemplates = (data) => {
         }
 
         h1 {
-            font-size: 5em;
+            font-size: 4em;
             margin: 0;
         }
 
@@ -180,15 +180,15 @@ const getPdfTemplates = (data) => {
         </table>
 
 
-        <div style="flex: 100%; margin-left: 70%; ">
-            <p "margin-left:-10px ;">Subtotal:<span  style="margin-left: 12%;> $${subtotal}</span> </p>
-            <p>Tax Rate:<span style="margin-left: 12%;">13%</span></p>
-            <P style="margin-left:-10px ;">Tax Amount:<span style="margin-left: 10%;">${taxFormated}</span></P>
+        <div style="flex: 100%; margin-left: 65%;">
+            <p "margin-left:-10px ;">Subtotal:<span style="margin-left: 9%;> $${subtotal}</span> </p>
+            <p>Tax Rate:<span style="margin-left: 9%;">13%</span></p>
+            <p style="margin-left:-10px ;">Tax Amount:<span style="margin-left: 10%;">${taxFormated}</span></p>
         </div>
-        <div style="flex: 100%; margin-left: 65%;border-top: 5px solid gray; ">
-            <p style=" margin-left:15%"><b>Total:</b><span style="margin-left:10%;"><b>$${total.toFixed(2)}</b></span></p>
+        <div style="flex: 100%; margin-left: 60%;border-top: 5px solid gray; ">
+            <p style=" margin-left:-10px;"><b>Total:</b><span style="margin-left:10%;"><b>$${total.toFixed(2)}</b></span></p>
         </div>
-        <div style="flex: 100%; margin-left: 65%;border-top: 5px solid gray; "></div>
+        <div style="flex: 100%; margin-left:60%;border-top: 5px solid gray; "></div>
         <div>
           <p style="margin-bottom: 30px; margin-top: 20px;  text-align: center; font-weight: 200;font-size: 17px;"><b>Thank you for your business!</b></p>
             <p style= "text-align: center;font-weight: 200;font-size: 17px;">if you have any questions or inquaries, please contect.</p>
