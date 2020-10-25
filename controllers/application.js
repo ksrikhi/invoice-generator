@@ -21,7 +21,7 @@ const generatePdfAndSendEmail = (req, response, next) => {
 
   fileName = `../tmp/invoice${Math.ceil(Math.random(1)*100000)}.pdf`;
   pdf.create(html, options).toFile(fileName, function (err, res) {
-    if (err) return response.status(401).send("something is wrong");
+    if (err) return response.status(200).send({ tyep: "error", message: "failed to generate pdf"});
     sendEmail(data, res.filename, response);
     console.log(res)
   });
