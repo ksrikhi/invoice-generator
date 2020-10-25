@@ -180,13 +180,13 @@ const getPdfTemplates = (data) => {
         </table>
 
 
-        <div style="flex: 100%; margin-left: 65%;">
-            <p "margin-left:-10px ;">Subtotal:<span style="margin-left: 9%;> $${subtotal}</span> </p>
-            <p>Tax Rate:<span style="margin-left: 9%;">13%</span></p>
-            <p style="margin-left:-10px ;">Tax Amount:<span style="margin-left: 10%;">${taxFormated}</span></p>
+        <div style="flex: 100%; margin-left: 70%;">
+            <p "margin-left:-10px ;">Subtotal:<span> $${subtotal}</span> </p>
+            <p>Tax Rate:<span>13%</span></p>
+            <p>Tax Amount:<span>${taxFormated}</span></p>
         </div>
-        <div style="flex: 100%; margin-left: 60%;border-top: 5px solid gray; ">
-            <p style=" margin-left:-10px;"><b>Total:</b><span style="margin-left:10%;"><b>$${total.toFixed(2)}</b></span></p>
+        <div style="flex: 100%; margin-left: 60%;border-top: 5px solid gray;">
+            <p style=" margin-left:80px;"><b>Total:</b><span><b>$${total.toFixed(2)}</b></span></p>
         </div>
         <div style="flex: 100%; margin-left:60%;border-top: 5px solid gray; "></div>
         <div>

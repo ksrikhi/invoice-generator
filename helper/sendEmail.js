@@ -30,7 +30,7 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY)
     })
     .catch((error) => {
       deletePdfFile(filePath);
-      response.status(200).send({ tyep: "error", message: "failed to send email"});
+      response.status(200).send({ type: "error", message: "failed to send email"});
       console.log(error + "something strange...");
     })
 }
