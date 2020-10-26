@@ -14,8 +14,8 @@ const generatePdfAndSendEmail = (req, response, next) => {
         "contents": '<div style="border-top: 15px solid #b24522;"></div>'
   },
   "footer": {
-    "height": '5mm',
-    "contents": '<div style="border-top: 15px solid #b24522;  padding: 2 !important;"></div>'
+    "height": '3mm',
+    "contents": '<div style="border-top: 15px solid #b24522;"></div>'
   }
 },
 
