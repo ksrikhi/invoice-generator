@@ -263,7 +263,7 @@ const getPdfTemplates = (data) => {
             <p>Tax Amount:<span style=" margin-left: 38%; ">${taxFormated}</span></p>
         </div>
         <div style="flex: 100%; margin-left: 35%;border-top: 5px solid gray;"></div>
-            <p style="flex: 100% text-align: right; "><b>Total:</b><span><b>$${total.toFixed(2)}</b></span></p>
+            <p style="flex: 100% ;  margin-left: 300px;"><b>Total:</b><span><b>$${total.toFixed(2)}</b></span></p>
         
         <div style="flex: 100%; margin-left:35%;border-top: 5px solid gray;"></div>
         <div>
