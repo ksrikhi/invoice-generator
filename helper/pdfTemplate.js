@@ -34,6 +34,88 @@ const getPdfTemplates = (data) => {
 <head>
     <title>INVOICE</title>
     <style>
+
+    .invoice-box {
+        max-width: 800px;
+        margin: auto;
+        padding: 30px;
+        border: 1px solid #eee;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+        font-size: 16px;
+        line-height: 24px;
+        font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+        color: #555;
+    }
+    
+    .invoice-box table {
+        width: 100%;
+        line-height: inherit;
+        text-align: left;
+    }
+    
+    .invoice-box table td {
+        padding: 5px;
+        vertical-align: top;
+    }
+    
+    .invoice-box table tr td:nth-child(2) {
+        text-align: right;
+    }
+    
+    .invoice-box table tr.top table td {
+        padding-bottom: 20px;
+    }
+    
+    .invoice-box table tr.top table td.title {
+        font-size: 45px;
+        line-height: 45px;
+        color: #333;
+    }
+    
+    .invoice-box table tr.information table td {
+        padding-bottom: 40px;
+    }
+    
+    .invoice-box table tr.heading td {
+        background: #eee;
+        border-bottom: 1px solid #ddd;
+        font-weight: bold;
+    }
+    
+    .invoice-box table tr.details td {
+        padding-bottom: 20px;
+    }
+    
+    .invoice-box table tr.item td{
+        border-bottom: 1px solid #eee;
+    }
+    
+    .invoice-box table tr.item.last td {
+        border-bottom: none;
+    }
+    
+    .invoice-box table tr.total td:nth-child(2) {
+        border-top: 2px solid #eee;
+        font-weight: bold;
+    }
+    
+    @media only screen and (max-width: 600px) {
+        .invoice-box table tr.top table td {
+            width: 100%;
+            display: block;
+            text-align: center;
+        }
+        
+        .invoice-box table tr.information table td {
+            width: 100%;
+            display: block;
+            text-align: center;
+        }
+    }
+    
+
+
+
     @page {
         size: A4;
     }
@@ -80,10 +162,7 @@ const getPdfTemplates = (data) => {
             margin: 0;
         }
 
-        p {
-            margin: 0 0 7px;
-        }
-
+        
         .clientDetail {
             flex: 50%;
         }
@@ -135,27 +214,53 @@ const getPdfTemplates = (data) => {
         </div>
         <div style="border-top: 5px solid gray; margin: 30px 0;"></div>
 
-        <div  style='padding: 10px 0; display: table;'>
 
-            <div style='display: table-cell; vertical-align: top; width:350px'>
+        <div class="invoice-box">
+        <table>
+        <tr class="information">
+            <td>
+            <p> <b>Billing To:</b> </P>
+            <p>${clientName}</p>
+            ${streetAddress ? `<p>${streetAddress}</p>` : ''}
+            <p>${phoneNumber}</p>
+            <p>${email}</p>
+            </td>
+            
+            <td>
+            <p> <b>Issued Date: </b></p>
+             <p> <b>Invoice No: </b> </p>
+            </td>
+            <td>
+            <p>${currentDate}</p>
+            ${invoiceNumber ? `<p>${invoiceNumber}</p>` : ''}
+            </td>
+        </tr>
+    </table>
+
+
+        </div>
+
+        <div  style='padding: 10px 0; display: table;'>
+            <div style='display: table-cell; vertical-align: top; width:50%'>
                 <p> <b>Billing To:</b> </P>
                 <p>${clientName}</p>
                 ${streetAddress ? `<p>${streetAddress}</p>` : ''}
                 <p>${phoneNumber}</p>
                 <p>${email}</p>
             </div>
-            
-                <div style='padding: 10px 0; display: table; overflow: hidden; margin: 0 0 10px;'>
-                    <div style='display: table-cell; vertical-align: top; padding-right: 25px;'>
+            <div style='display: table; overflow: hidden; margin: 0 0 10px;'>
+                    <div style='display: table-cell; vertical-align: top;text-align: left; padding-right: 5px; margin-right: 30%'>
                         <p> <b>Issued Date: </b></p>
                         <p> <b>Invoice No: </b> </p>
                     </div>
                     <div style="vertical-align: top; display: table-cell;">
-                        <p><b></b>${currentDate}</p>
+                        <p>${currentDate}</p>
                         ${invoiceNumber ? `<p>${invoiceNumber}</p>` : ''}
                     </div>
-                </div>
+            </div>
         </div>
+
+
         <table >
             <tr>
                 <th>Discription</th>
@@ -181,9 +286,9 @@ const getPdfTemplates = (data) => {
             <p>Tax Rate:<span>13%</span></p>
             <p>Tax Amount:<span style=" margin-left: 38%; ">${taxFormated}</span></p>
         </div>
-        <div style="flex: 100%; margin-left: 35%;border-top: 5px solid gray;">
-            <p style="flex: 100%; margin-left: 38%; "><b>Total:</b><span><b>$${total.toFixed(2)}</b></span></p>
-        </div>
+        <div style="flex: 100%; margin-left: 35%;border-top: 5px solid gray;"></div>
+            <p style="flex: 100% "><b>Total:</b><span><b>$${total.toFixed(2)}</b></span></p>
+        
         <div style="flex: 100%; margin-left:35%;border-top: 5px solid gray;"></div>
         <div>
           <p style="margin-bottom: 30px; margin-top: 20px;  text-align: center; font-weight: 200;font-size: 17px;"><b>Thank you for your business!</b></p>
