@@ -215,33 +215,9 @@ const getPdfTemplates = (data) => {
         <div style="border-top: 5px solid gray; margin: 30px 0;"></div>
 
 
-        <div class="invoice-box">
-        <table>
-        <tr class="information">
-            <td>
-            <p> <b>Billing To:</b> </P>
-            <p>${clientName}</p>
-            ${streetAddress ? `<p>${streetAddress}</p>` : ''}
-            <p>${phoneNumber}</p>
-            <p>${email}</p>
-            </td>
-            
-            <td>
-            <p> <b>Issued Date: </b></p>
-             <p> <b>Invoice No: </b> </p>
-            </td>
-            <td>
-            <p>${currentDate}</p>
-            ${invoiceNumber ? `<p>${invoiceNumber}</p>` : ''}
-            </td>
-        </tr>
-    </table>
-
-
-        </div>
 
         <div  style='padding: 10px 0; display: table;'>
-            <div style='display: table-cell; vertical-align: top; width:50%'>
+            <div style='display: table-cell; vertical-align: top; width:70%;'>
                 <p> <b>Billing To:</b> </P>
                 <p>${clientName}</p>
                 ${streetAddress ? `<p>${streetAddress}</p>` : ''}
@@ -249,7 +225,7 @@ const getPdfTemplates = (data) => {
                 <p>${email}</p>
             </div>
             <div style='display: table; overflow: hidden; margin: 0 0 10px;'>
-                    <div style='display: table-cell; vertical-align: top;text-align: left; padding-right: 5px; margin-right: 30%'>
+                    <div style='display: table-cell; vertical-align: top;text-align: left; padding-right: 5px; margin-left: 90px;'>
                         <p> <b>Issued Date: </b></p>
                         <p> <b>Invoice No: </b> </p>
                     </div>
@@ -287,7 +263,7 @@ const getPdfTemplates = (data) => {
             <p>Tax Amount:<span style=" margin-left: 38%; ">${taxFormated}</span></p>
         </div>
         <div style="flex: 100%; margin-left: 35%;border-top: 5px solid gray;"></div>
-            <p style="flex: 100% "><b>Total:</b><span><b>$${total.toFixed(2)}</b></span></p>
+            <p style="flex: 100% text-align: right; "><b>Total:</b><span><b>$${total.toFixed(2)}</b></span></p>
         
         <div style="flex: 100%; margin-left:35%;border-top: 5px solid gray;"></div>
         <div>
