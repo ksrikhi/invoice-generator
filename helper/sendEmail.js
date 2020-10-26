@@ -10,7 +10,7 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY)
   const msg = {
     to: data.billingDetail.email,
     from: data.profileDetail.email,
-    subject: 'Billing Invoice',
+    subject: `Billing Invoice ${ data.billingDetail.invoiceNumber || ''}`,
     html: getEmailTemplates(data),
     attachments: [
       {

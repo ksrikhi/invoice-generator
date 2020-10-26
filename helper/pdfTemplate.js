@@ -2,18 +2,17 @@ const getPdfTemplates = (data) => {
     const { billingDetail: {
         clientName,
         streetAddress,
-        city,
-        state,
         phoneNumber,
-        email },
+        email,
+        invoiceNumber,
+    },
         items,
         profileDetail: {
             companyName,
-            companyAddress,
-            city: cityaddress,
-            phoneNumber: mobileNumber,
-            state: companyState,
             email: emailaddress,
+            phoneNumber: mobileNumber,
+            rtNumber: rtNumber,
+            companyAddress,
         }
     } = data;
     const subTotal = items.reduce((accumulator, currentValue) => accumulator +
@@ -27,7 +26,7 @@ const getPdfTemplates = (data) => {
     const month = new Date().getMonth() + 1;
     const year = new Date().getFullYear();
     const currentDate = `${year}-${month}-${date}`
-    const clientId = Math.floor((Math.random() * 999999) + 1);
+    // const clientId = Math.floor((Math.random() * 999999) + 1);
     return `
     <!DOCTYPE html>
 <html>
@@ -128,11 +127,10 @@ const getPdfTemplates = (data) => {
             <h1 style='display: table-cell; vertical-align: top; width: 100%; padding-right: 25px;'>INVOICE</h1>
             <div style="vertical-align: top;">
                 <p><b>${companyName}</b></p>
-                <p>${companyAddress}</p>
-                <p>${cityaddress}</p>
-                <p>${companyState}</p>
-                <p>${mobileNumber}</p>
                 <p>${emailaddress}</p>
+                <p>${mobileNumber}</p>
+                ${rtNumber ? `<p>${rtNumber}</p>` : ''}
+                ${companyAddress ? `<p>${companyAddress}</p>` : ''}
             </div>
         </div>
         <div style="border-top: 5px solid gray; margin: 30px 0;"></div>
@@ -142,21 +140,19 @@ const getPdfTemplates = (data) => {
             <div style='display: table-cell; vertical-align: top; width:350px'>
                 <p> <b>Billing To:</b> </P>
                 <p>${clientName}</p>
-                <p>${streetAddress}</p>
-                <p>${city}</p>
-                <p>${state}</p>
+                ${streetAddress ? `<p>${streetAddress}</p>` : ''}
                 <p>${phoneNumber}</p>
                 <p>${email}</p>
             </div>
             
-                <div class="flex-box">
-                    <div  style=' vertical-align: top '>
+                <div style='padding: 10px 0; display: table; overflow: hidden; margin: 0 0 10px;'>
+                    <div style='display: table-cell; vertical-align: top; padding-right: 25px;'>
                         <p> <b>Issued Date: </b></p>
                         <p> <b>Invoice No: </b> </p>
                     </div>
-                    <div style='display: table-cell; vertical-align: top; margin-left: 10%;'>
+                    <div style="vertical-align: top; display: table-cell;">
                         <p><b></b>${currentDate}</p>
-                        <p>${clientId} </p>
+                        ${invoiceNumber ? `<p>${invoiceNumber}</p>` : ''}
                     </div>
                 </div>
         </div>
@@ -180,19 +176,19 @@ const getPdfTemplates = (data) => {
         </table>
 
 
-        <div style="flex: 100%; margin-left: 60%;">
+        <div style="flex: 100%; margin-left: 40%;">
             <p>Subtotal:<span> $${subtotal}</span> </p>
             <p>Tax Rate:<span>13%</span></p>
             <p>Tax Amount:<span>${taxFormated}</span></p>
         </div>
-        <div style="flex: 100%; margin-left: 60%;border-top: 5px solid gray;">
-            <p style=" margin-left:60px;"><b>Total:</b><span><b>$${total.toFixed(2)}</b></span></p>
+        <div style="flex: 100%; margin-left: 35%;border-top: 5px solid gray;">
+            <p style="flex: 100%; "><b>Total:</b><span><b>$${total.toFixed(2)}</b></span></p>
         </div>
-        <div style="flex: 100%; margin-left:60%;border-top: 5px solid gray; "></div>
+        <div style="flex: 100%; margin-left:35%;border-top: 5px solid gray;"></div>
         <div>
           <p style="margin-bottom: 30px; margin-top: 20px;  text-align: center; font-weight: 200;font-size: 17px;"><b>Thank you for your business!</b></p>
             <p style= "text-align: center;font-weight: 200;font-size: 17px;">if you have any questions or inquaries, please contect.</p>
-            <p style="text-align: center;font-weight: 200;font-size: 17px;">Contect Name,(000)000-0000, or billing@companyname.com</p>
+            <p style="text-align: center;font-weight: 200;font-size: 17px;">Contect Name,${mobileNumber}, or ${emailaddress}</p>
         </div>
     </div>
 </body>
