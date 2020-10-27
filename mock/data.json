@@ -1,35 +1,25 @@
 {
     "billingDetail": {
-        "clientName": "k. sharma",
-        "streetAddress": "Ascot Ave , m62",
-        "city": "toronto",
-        "state": "Ontario",
-        "phoneNumber": "234567890",
-        "email": "ksrikhi123@gmail.com"
+        "clientName": "ksanchan s",
+        "streetAddress": "g",
+        "phoneNumber": "76890",
+        "email": "rikhikanchan123@gmail.com",
+        "invoiceNumber": "345678567"
     },
     "items": [
         {
-            "discription": "material",
-            "unitCost": 12.5,
-            "quantity": 5
-        },
-        {
-            "discription": "material cost",
-            "unitCost": 1.43,
-            "quantity": 50
-        },
-        {
-            "discription": "css deaign",
-            "unitCost": 10.5,
-            "quantity": 5
+            "discription": "test",
+            "quantity": "4",
+            "unitCost": "4"
         }
     ],
     "profileDetail": {
-        "companyName": "Techbye Team",
-        "companyAddress": "toronto",
-        "city": "Downtown",
-        "phoneNumber": "546786779",
-        "state": "On",
-        "email": "techbyteteam@gmail.com"
+        "companyName": "Techbyte Team inc.",
+        "companyAddress": "Ascot Ave",
+        "city": "Toronto, M6E 242",
+        "phoneNumber": "4372377378",
+        "state": "Ontario",
+        "email": "techbyteteam@gmail.com",
+        "rtNumber": "567"
     }
 }
