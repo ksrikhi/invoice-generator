@@ -29,102 +29,134 @@ const getPdfTemplates = (data) => {
     // const clientId = Math.floor((Math.random() * 999999) + 1);
     return `
     <!DOCTYPE html>
-<html>
+    <html>
 
-<head>
-    <title>INVOICE</title>
-    <style>
-
+    <head>
+        <title>INVOICE</title>
+        <style>
     
-    @page {
-        size: A4;
-    }
-
-    @page :left {
-        margin-left: 1cm;
-    }
-
-    @page :right {
-        margin-left: 1cm;
-    }
-
-    @page :first {
-        margin-top: 1cm;
-    }
-
-    body {
-        color: #2a2a2a;
-        font-family: Helvetica, Arial, sans-serif;
-        max-width: 1200px;
-        margin-top: 1em;
-        box-sizing: border-box;
-        font-size:16px;
-    }
-
-        .flex-container {
-            max-width: 800px;
-            min-width: 800px;
-            margin-left: 10%;
-            margin-right: 10%;
-            margin-top: 1em;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .compantProfile {
-            display: flex;
-            flex-direction: column;
-            justify-content: end;
-         
-        }
-
-        h1 {
-            font-size: 4em;
-            margin: 0;
-        }
-
         
-        .clientDetail {
-            flex: 50%;
+        @page {
+            size: A4;
         }
-
-        .flex-box {
-            padding: 0;
-            margin: 0;
-            list-style: none;
-            display: flex;
+    
+        @page :left {
+            margin-left: 1cm;
         }
-
-        .flex-start {
-            justify-content: flex-start;
+    
+       
+    
+        @page :first {
+            margin-top: 1cm;
         }
-
-        table.item,
-        th.item,
-        td.item {
-            border: 1px solid black;
+    
+        @media only screen and (max-width: 500px){
+            body {
+                color: #2a2a2a;
+                font-family: Helvetica, Arial, sans-serif;
+                margin-top: 1em;
+                box-sizing: border-box;
+                font-size:16px;
+                margin-left: 5%;
+                margin-right:5%;
+                border-collapse: collapse;
+                table-layout: fixed;
+                width:100%;
+            
+            }
+        
+                .flex-container {
+               
+                    margin-left: 10%;
+                    margin-right: 5%;
+                    margin-top: 1em;
+                    display: flex;
+                    flex-direction: column;
+                    table-layout: fixed;
+                    width:100%;
+                }
+    
+        }
+        
+        body {
+            max-width: 800px;
+            color: #2a2a2a;
+            font-family: Helvetica, Arial, sans-serif;
+            margin-top: 1em;
+            box-sizing: border-box;
+            font-size:16px;
+            margin-left: 5%;
+            margin-right:5%;
             border-collapse: collapse;
-            margin: 25px 0 10px;
-            text-align: center;
             table-layout: fixed;
             width:100%;
+        
         }
-
-        td:empty::after {
-            content: "";
-        }
-
-        span {
-            margin-left: 40%;
-        }
-    </style>
-</head>
-
+    
+            .flex-container {
+                max-width: 800px;
+                margin-left: 5%;
+                margin-right: 5%;
+                margin-top: 1em;
+                display: flex;
+                flex-direction: column;
+                table-layout: fixed;
+                width:100%;
+            }
+    
+            .compantProfile {
+                display: flex;
+                flex-direction: column;
+                justify-content: end;
+             
+            }
+    
+            h1 {
+                font-size: 4em;
+                margin: 0;
+            }
+    
+            
+            .clientDetail {
+                flex: 50%;
+            }
+    
+            .flex-box {
+                padding: 0;
+                margin: 0;
+                list-style: none;
+                display: flex;
+            }
+    
+            .flex-start {
+                justify-content: flex-start;
+            }
+    
+            table.item,
+            th.item,
+            td.item {
+                border: 1px solid black;
+                border-collapse: collapse;
+                margin: 25px 0 10px;
+                text-align: center;
+                table-layout: fixed;
+                width:100%;
+            }
+    
+            td:empty::after {
+                content: "";
+            }
+    
+            span {
+                margin-left: 40%;
+            }
+        </style>
+        </head>
 <body>
     <div class="flex-container">
-        <div style='padding: 10px 0; display: table; overflow: hidden; margin: 0 0 10px;'>
-            <h1 style='display: table-cell; vertical-align: top; width: 100%; padding-right: 25px;'>INVOICE</h1>
-            <div style="vertical-align: top;">
+        <div style=' display: table; width:100%; '>
+            <h1 style='display: table-cell; vertical-align: top;'>INVOICE</h1>
+            <div style="vertical-align: top; float: right; margin-left: 240px;">
                 <p><b>${companyName}</b></p>
                 <p>${emailaddress}</p>
                 <p>${mobileNumber}</p>
@@ -132,19 +164,19 @@ const getPdfTemplates = (data) => {
                 ${companyAddress ? `<p>${companyAddress}</p>` : ''}
             </div>
         </div>
-        <div style="border-top: 5px solid gray; margin: 30px 0;"></div>
+        <div style="border-top: 5px solid gray;"></div>
 
-        <div  style='padding: 10px 0; display: table;'>
-            <div style='display: table-cell; vertical-align: top; width:40%'>
+        <div style='display: table;'>
+            <div style='display: table-cell; vertical-align: top;text-align: left;'>
                 <p> <b>Billing To:</b> </P>
                 <p>${clientName}</p>
                 ${streetAddress ? `<p>${streetAddress}</p>` : ''}
                 <p>${phoneNumber}</p>
                 <p>${email}</p>
             </div>
-            <div style='display: table; overflow: hidden; margin: 0 0 10px;'>
+            <div style='display: table; float: right; margin-left: 360px;'>
 
-        <table style=' margin-left:270px;'>
+        <table>
         <tr >
             <td>
                 <p> <b>Issued Date: </b></p>

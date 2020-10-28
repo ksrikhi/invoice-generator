@@ -2,16 +2,18 @@ const pdf = require('html-pdf');
 //  const data = require('../mock/data.json');
 const getPdfTemplates = require('../helper/pdfTemplate');
 const sendEmail = require('../helper/sendEmail');
+// const debug = require('../helper/debug');
 
 const generatePdfAndSendEmail = (req, response, next) => {
   const { body } = req;
   const data = body;
   const html = getPdfTemplates(data);
+  // const html = debug;
   const options = { 
   "format": 'Letter',
     "header": {
       "height": '2mm',
-        "contents": '<div style="border-top: 15px solid #b24522;"></div>'
+        "contents": '<div style="border-top: 15px solid #b24522; width: 100%;"></div>'
   },
   "footer": {
     "height": '5mm',
