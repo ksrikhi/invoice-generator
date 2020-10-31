@@ -34,82 +34,27 @@ const getPdfTemplates = (data) => {
     <head>
         <title>INVOICE</title>
         <style>
-    
-        
-        @page {
-            size: A4;
-        }
-    
-        @page :left {
-            margin-left: 1cm;
-        }
-    
-       
-    
-        @page :first {
-            margin-top: 1cm;
-        }
-    
-        @media only screen and (max-width: 500px){
-            body {
-                color: #2a2a2a;
-                font-family: Helvetica, Arial, sans-serif;
-                margin-top: 1em;
-                box-sizing: border-box;
-                font-size:16px;
-                margin-left: 5%;
-                margin-right:5%;
-                border-collapse: collapse;
-                table-layout: fixed;
-                width:100%;
-            
-            }
-        
-                .flex-container {
-               
-                    margin-left: 10%;
-                    margin-right: 5%;
-                    margin-top: 1em;
-                    display: flex;
-                    flex-direction: column;
-                    table-layout: fixed;
-                    width:100%;
-                }
-    
-        }
-        
         body {
-            max-width: 800px;
             color: #2a2a2a;
             font-family: Helvetica, Arial, sans-serif;
             margin-top: 1em;
-            box-sizing: border-box;
+            box-sizing: border-box;    
             font-size:16px;
             margin-left: 5%;
             margin-right:5%;
-            border-collapse: collapse;
-            table-layout: fixed;
-            width:100%;
+            overflow: auto;
+            width: auto;
+       
         
         }
     
             .flex-container {
-                max-width: 800px;
-                margin-left: 5%;
-                margin-right: 5%;
-                margin-top: 1em;
                 display: flex;
                 flex-direction: column;
-                table-layout: fixed;
-                width:100%;
+                overflow: visible ;
+               
             }
     
-            .compantProfile {
-                display: flex;
-                flex-direction: column;
-                justify-content: end;
-             
-            }
     
             h1 {
                 font-size: 4em;
@@ -117,20 +62,6 @@ const getPdfTemplates = (data) => {
             }
     
             
-            .clientDetail {
-                flex: 50%;
-            }
-    
-            .flex-box {
-                padding: 0;
-                margin: 0;
-                list-style: none;
-                display: flex;
-            }
-    
-            .flex-start {
-                justify-content: flex-start;
-            }
     
             table.item,
             th.item,
@@ -156,7 +87,7 @@ const getPdfTemplates = (data) => {
     <div class="flex-container">
         <div style=' display: table; width:100%; '>
             <h1 style='display: table-cell; vertical-align: top;'>INVOICE</h1>
-            <div style="vertical-align: top; float: right; margin-left: 240px;">
+            <div style="vertical-align: top; float: right;">
                 <p><b>${companyName}</b></p>
                 <p>${emailaddress}</p>
                 <p>${mobileNumber}</p>
@@ -223,7 +154,7 @@ const getPdfTemplates = (data) => {
         <table style=' margin-left:50%;'>
         <tr >
             <td>
-            <p style="flex: 100%"><b>Total:</b><span style='margin-left:98%';><b>$${total.toFixed(2)}</b></span></p>
+            <p style="flex: 100%"><b>Total:</b><span style='margin-left:98%;'><b>$${total.toFixed(2)}</b></span></p>
         
             </td>
         </tr>
