@@ -105,7 +105,7 @@ const getPdfTemplates = (data) => {
                 <p>${phoneNumber}</p>
                 <p>${email}</p>
             </div>
-            <div style='display: table; float: right; margin-left: 360px;'>
+            <div style='display: table; float: right;'>
 
         <table>
         <tr >
@@ -154,8 +154,7 @@ const getPdfTemplates = (data) => {
         <table style=' margin-left:50%;'>
         <tr >
             <td>
-            <p style="flex: 100%"><b>Total:</b><span style='margin-left:98%;'><b>$${total.toFixed(2)}</b></span></p>
-        
+            <p style="flex: 100%"><b>Total:</b><span><b>$${total.toFixed(2)}</b></span></p>
             </td>
         </tr>
     </table>
