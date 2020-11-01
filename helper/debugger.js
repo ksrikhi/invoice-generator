@@ -1,211 +1,213 @@
-const debug =` <!DOCTYPE html>
+const debug =` <!doctype html>
 <html>
-
 <head>
-    <title>INVOICE</title>
+    <meta charset="utf-8">
+    <title>A simple, clean, and responsive HTML invoice template</title>
+    
     <style>
-
-    
-    @page {
-        size: A4;
-    }
-
-    @page :left {
-        margin-left: 1cm;
-    }
-
-   
-
-    @page :first {
-        margin-top: 1cm;
-    }
-
-    @media only screen and (max-width: 500px){
-        body {
-            color: #2a2a2a;
-            font-family: Helvetica, Arial, sans-serif;
-            margin-top: 1em;
-            box-sizing: border-box;
-            font-size:16px;
-            margin-left: 5%;
-            margin-right:5%;
-            border-collapse: collapse;
-            table-layout: fixed;
-            width:100%;
-        
-        }
-    
-            .flex-container {
-           
-                margin-left: 10%;
-                margin-right: 5%;
-                margin-top: 1em;
-                display: flex;
-                flex-direction: column;
-                table-layout: fixed;
-                width:100%;
-            }
-
-    }
-    
-    body {
+    .invoice-box {
         max-width: 800px;
-        color: #2a2a2a;
-        font-family: Helvetica, Arial, sans-serif;
-        margin-top: 1em;
-        box-sizing: border-box;
-        font-size:16px;
-        margin-left: 5%;
-        margin-right:5%;
-        border-collapse: collapse;
-        table-layout: fixed;
-        width:100%;
-    
+        margin: auto;
+        padding: 30px;
+        border: 1px solid #eee;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+        font-size: 16px;
+        line-height: 24px;
+        font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+        color: #555;
     }
-
-        .flex-container {
-            max-width: 800px;
-            margin-left: 5%;
-            margin-right: 5%;
-            margin-top: 1em;
-            display: flex;
-            flex-direction: column;
-            table-layout: fixed;
-            width:100%;
-        }
-
-        .compantProfile {
-            display: flex;
-            flex-direction: column;
-            justify-content: end;
-         
-        }
-
-        h1 {
-            font-size: 4em;
-            margin: 0;
-        }
-
-        
-        .clientDetail {
-            flex: 50%;
-        }
-
-        .flex-box {
-            padding: 0;
-            margin: 0;
-            list-style: none;
-            display: flex;
-        }
-
-        .flex-start {
-            justify-content: flex-start;
-        }
-
-        table.item,
-        th.item,
-        td.item {
-            border: 1px solid black;
-            border-collapse: collapse;
-            margin: 25px 0 10px;
+    
+    .invoice-box table {
+        width: 100%;
+        line-height: inherit;
+        text-align: left;
+    }
+    
+    .invoice-box table td {
+        padding: 5px;
+        vertical-align: top;
+    }
+    
+    .invoice-box table tr td:nth-child(2) {
+        text-align: right;
+    }
+    
+    .invoice-box table tr.top table td {
+        padding-bottom: 20px;
+    }
+    
+    .invoice-box table tr.top table td.title {
+        font-size: 45px;
+        line-height: 45px;
+        color: #333;
+    }
+    
+    .invoice-box table tr.information table td {
+        padding-bottom: 40px;
+    }
+    
+    .invoice-box table tr.heading td {
+        background: #eee;
+        border-bottom: 1px solid #ddd;
+        font-weight: bold;
+    }
+    
+    .invoice-box table tr.details td {
+        padding-bottom: 20px;
+    }
+    
+    .invoice-box table tr.item td{
+        border-bottom: 1px solid #eee;
+    }
+    
+    .invoice-box table tr.item.last td {
+        border-bottom: none;
+    }
+    
+    .invoice-box table tr.total td:nth-child(2) {
+        border-top: 2px solid #eee;
+        font-weight: bold;
+    }
+    
+    @media only screen and (max-width: 600px) {
+        .invoice-box table tr.top table td {
+            width: 100%;
+            display: block;
             text-align: center;
-            table-layout: fixed;
-            width:100%;
         }
-
-        td:empty::after {
-            content: "";
+        
+        .invoice-box table tr.information table td {
+            width: 100%;
+            display: block;
+            text-align: center;
         }
-
-        span {
-            margin-left: 40%;
-        }
+    }
+    
+    /** RTL **/
+    .rtl {
+        direction: rtl;
+        font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+    }
+    
+    .rtl table {
+        text-align: right;
+    }
+    
+    .rtl table tr td:nth-child(2) {
+        text-align: left;
+    }
     </style>
 </head>
 
 <body>
-<div class="flex-container">
-<div style=' display: table; width:100%; '>
-    <h1 style='display: table-cell; vertical-align: top;'>INVOICE</h1>
-    <div style="vertical-align: top; float: right; margin-left: 250px;">
-        <p><b>Techbyte Team inc.</b></p>
-        <p>techbyteteam@gmail.com</p>
-        <p>4372377378</p>
-        <p>567</p>
-        <p>Ascot Ave</p>
-    </div>
-</div>
-<div style="border-top: 5px solid gray;"></div>
-
-<div  style='display: table;'>
-    <div style='display: table-cell; vertical-align: top;text-align: left;'>
-        <p> <b>Billing To:</b> </P>
-        <p>kanchan</p>
-        <p>trtry</p>
-        <p>4356789</p>
-        <p>rikhikanchan123@gmail.com</p>
-    </div>
-    <div style='display: table; float: right; margin-left: 360px;'>
-
-<table>
-<tr >
-    <td>
-        <p> <b>Issued Date: </b></p>
-        <p> <b>Invoice No: </b> </p>
-    </td>
-    
-    <td>
-    <p>2020-10-28</p>
-    <p>345678</p>
-    </td>
-</tr>
-</table>
-    </div>
-</div>
-
-
-
-        <table class="item" >
-            <tr class="item" >
-                <th class="item" >Discription</th>
-                <th class="item" >Unit Cost</th>
-                <th class="item" >Quantity</th>
-                <th class="item" >Amount</th>
+    <div class="invoice-box">
+        <table cellpadding="0" cellspacing="0">
+            <tr class="top">
+                <td colspan="2">
+                    <table>
+                        <tr>
+                            <td class="title">
+                                <img src="https://www.sparksuite.com/images/logo.png" style="width:100%; max-width:300px;">
+                            </td>
+                            
+                            <td>
+                                Invoice #: 123<br>
+                                Created: January 1, 2015<br>
+                                Due: February 1, 2015
+                            </td>
+                        </tr>
+                    </table>
+                </td>
             </tr>
             
-                <tr class="item" >
-                <td class="item">test</td>
-                <td class="item">$4</td>
-                <td class="item" >4</td>
-                <td class="item" >$16.00</td>
+            <tr class="information">
+                <td colspan="2">
+                    <table>
+                        <tr>
+                            <td>
+                                Sparksuite, Inc.<br>
+                                12345 Sunny Road<br>
+                                Sunnyville, CA 12345
+                            </td>
+                            
+                            <td>
+                                Acme Corp.<br>
+                                John Doe<br>
+                                john@example.com
+                            </td>
+                        </tr>
+                    </table>
+                </td>
             </tr>
-           
+            
+            <tr class="heading">
+                <td>
+                    Payment Method
+                </td>
+                
+                <td>
+                    Check #
+                </td>
+            </tr>
+            
+            <tr class="details">
+                <td>
+                    Check
+                </td>
+                
+                <td>
+                    1000
+                </td>
+            </tr>
+            
+            <tr class="heading">
+                <td>
+                    Item
+                </td>
+                
+                <td>
+                    Price
+                </td>
+            </tr>
+            
+            <tr class="item">
+                <td>
+                    Website design
+                </td>
+                
+                <td>
+                    $300.00
+                </td>
+            </tr>
+            
+            <tr class="item">
+                <td>
+                    Hosting (3 months)
+                </td>
+                
+                <td>
+                    $75.00
+                </td>
+            </tr>
+            
+            <tr class="item last">
+                <td>
+                    Domain name (1 year)
+                </td>
+                
+                <td>
+                    $10.00
+                </td>
+            </tr>
+            
+            <tr class="total">
+                <td></td>
+                
+                <td>
+                   Total: $385.00
+                </td>
+            </tr>
         </table>
-
-
-        <div style="flex: 100%; margin-left: 50%;">
-            <p>Subtotal:&nbsp;&nbsp;&nbsp;<span> $16.00</span> </p>
-            <p>Tax Rate:&nbsp;&nbsp;&nbsp;<span>13%</span></p>
-            <p>Tax Amount:<span style="margin-left: 38%; ">$2.08</span></p>
-        </div>
-        <div style="flex: 100%; margin-left: 42%;border-top: 5px solid gray;"></div>
-
-        <table style=' margin-left:50%;'>
-        <tr >
-            <td>
-            <p style="flex: 100%"><b>Total:</b><span style='margin-left:98%';><b>$18.08</b></span></p>
-        
-            </td>
-        </tr>
-    </table>
-
-            
-        <div style="flex: 100%; margin-left:42%;border-top: 5px solid gray;"></div>
-        <div>
-          <p style="margin-bottom: 30px; margin-top: 20px;  text-align: center; font-weight: 200;font-size: 17px;"><b>Thank you for your business!</b></p>
-            <p style= "text-align: center;font-weight: 200;font-size: 17px; margin-left: 10px">if you have any questions or inquaries, please contect.</p>
-            <p style="text-align: center;font-weight: 200;font-size: 17px;">Contect Name,4372377378, or techbyteteam@gmail.com</p>
-        </div>
     </div>
 </body>
 </html>`

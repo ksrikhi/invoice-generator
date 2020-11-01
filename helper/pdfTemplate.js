@@ -145,7 +145,7 @@ const getPdfTemplates = (data) => {
 
 
         <div style="flex: 100%; margin-left: 50%;">
-            <p>Subtotal:&nbsp;&nbsp;&nbsp;<span> $${subtotal}</span> </p>
+            <p>Subtotal:&nbsp;&nbsp;&nbsp;<span style= " vertical-align: top;"> $${subtotal}</span> </p>
             <p>Tax Rate:&nbsp;&nbsp;&nbsp;<span>13%</span></p>
             <p>Tax Amount:<span style="margin-left: 38%; ">$${taxFormated}</span></p>
         </div>
@@ -154,7 +154,7 @@ const getPdfTemplates = (data) => {
         <table style=' margin-left:50%;'>
         <tr >
             <td>
-            <p style="flex: 100%"><b>Total:</b><span><b>$${total.toFixed(2)}</b></span></p>
+            <p style="flex: 100% ; font-weight: 250;">Total:<span style="margin-left: 130px; font-weight: 250;">$${total.toFixed(2)}</span></p>
             </td>
         </tr>
     </table>
@@ -166,6 +166,7 @@ const getPdfTemplates = (data) => {
             <p style= "text-align: center;font-weight: 200;font-size: 17px; margin-left: 10px">if you have any questions or inquaries, please contect.</p>
             <p style="text-align: center;font-weight: 200;font-size: 17px;">Contect Name,${mobileNumber}, or ${emailaddress}</p>
         </div>
+        <div></div>
     </div>
 </body>
 </html>
