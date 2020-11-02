@@ -10,16 +10,14 @@ const generatePdfAndSendEmail = (req, response, next) => {
   const html = getPdfTemplates(data);
   //  const html = debug ;
   const options = { 
-  "height": '8in',
-  "width" : "8in",
+    "format": "A4",
     "header": {
-      "height": '2mm',
-        "contents": '<div style="border-top: 15px solid #b24522; width: 100%; margin:10px;  padding: 5 !important;"></div>'
+      "height": '1in',
+        "contents": '<div style="border-top: 15px solid #b24522; width: 100%;"></div>'
   },
   "footer": {
-    "height": "2mm",
-    "width" : "5in",
-    "contents": '<div style="border-top: 15px solid #b24522; width: 100%; margin:10px;"></div>'
+    "height": "1in",
+    "contents": '<div style="border-top: 15px solid #b24522; "></div>'
   }
 },
 
